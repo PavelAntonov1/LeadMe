@@ -1,0 +1,126 @@
+.form {
+  transform: translateY(-150%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+
+  &--active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  background-image: linear-gradient(
+    to right bottom,
+    #469eee 0%,
+    rgba(62, 198, 228, 0.8) 100%
+  );
+  padding: 4rem;
+  border-radius: 2rem;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+
+  &__label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    display: block;
+    max-width: 25rem;
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    font-family: inherit;
+    border-radius: 2rem;
+    color: var(--color-primary);
+    position: relative;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      background-color: var(--color-primary);
+      color: #fff;
+      animation: focusAnimation 0.5s;
+    }
+
+    &--date,
+    &--time {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    &--date {
+      letter-spacing: 0.5rem;
+    }
+
+    &--time {
+      letter-spacing: 1rem;
+    }
+  }
+
+  &__radio-input:checked + &__radio-button {
+    background-image: none;
+    background-color: var(--color-primary);
+    color: #fff;
+    animation: checked 0.5s;
+  }
+
+  &__radio-group {
+    font-size: 2rem;
+    text-align: center;
+
+    &--meeting {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__radio-button {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.5) 100%
+    );
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  &__type-name {
+    font-size: 1.5rem;
+    display: block;
+  }
+}
+
+.form-group {
+  &__grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    align-items: center;
+    grid-gap: 2rem;
+  }
+
+  &:last-child {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}

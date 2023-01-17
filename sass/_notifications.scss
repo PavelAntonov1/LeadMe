@@ -1,0 +1,103 @@
+.notifications-center {
+  position: absolute;
+  z-index: 2;
+  top: 2rem;
+  right: 2rem;
+  height: 50%;
+  display: flex;
+  gap: 0;
+  transition: all 0.4s;
+
+  &--hidden {
+    transform: translateX(27rem);
+  }
+
+  &--hidden .btn-toggle div {
+    transform: rotate(180deg);
+  }
+}
+
+.notifications-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  width: 25rem;
+  height: 100%;
+  padding: 2rem;
+  border-radius: 2rem;
+
+  overflow-y: scroll;
+
+  // Hiding the scrollbar
+  -ms-overflow-style: none; // for IE and Edge
+  scrollbar-width: none; // for Firefox
+
+  // for Google
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.pop-up {
+  background-image: linear-gradient(
+    to right bottom,
+    #469eee 0%,
+    rgba(62, 198, 228, 0.8) 100%
+  );
+  display: flex;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  justify-content: space-between;
+  width: 100%;
+  transition: all 0.2s;
+  //   animation: move 1s infinite;
+
+  &--new {
+    // border: 3px solid var(--color-gradient);
+    color: var(--color-gradient);
+  }
+
+  &--new &__text {
+    color: var(--color-gradient);
+  }
+
+  &--new .btn-close {
+    color: var(--color-gradient);
+  }
+
+  &--new &__icon {
+    fill: var(--color-gradient);
+  }
+
+  &__icon-container {
+    height: 3rem;
+    width: 3rem;
+    align-self: center;
+    animation: move 1.5s infinite;
+  }
+
+  &__icon {
+    transition: all 1.2s;
+    fill: var(--color-primary);
+  }
+
+  &__text {
+    transition: all 1.2s;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    width: 60%;
+  }
+}
+
+.counter {
+  transition: all 0.3s;
+  &--hidden {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}

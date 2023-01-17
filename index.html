@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubballi&family=Poppins:wght@300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Leaflet-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.css"
+    />
+
+    <!--USE THE CURRENT VERSION OF LEAFLET!!!-->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.js"
+    ></script>
+
+    <!--MapQuest-->
+    <script
+      defer
+      src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=0z6cq8fyAGhebRqEntjJD9sewiRZbwLx"
+    ></script>
+    <script
+      defer
+      src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=0z6cq8fyAGhebRqEntjJD9sewiRZbwLx"
+    ></script>
+
+    <!--My Scripts and Styles-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer type="module" src="/js/refactored.js"></script>
+
+    <title>Lead Me</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="control-panel">
+        <img src="/images/logo.svg" alt="logo" class="logo" />
+
+        <div class="activities-container"></div>
+
+        <form class="sort-container">
+          <h4 class="sort__heading">Sort by</h4>
+
+          <input type="radio" class="sort__radio-input" id="date" name="type" />
+          <label for="date" class="sort__radio-button" id="sort-date">🗓️</label>
+
+          <input
+            type="radio"
+            class="sort__radio-input"
+            id="sport"
+            name="type"
+          />
+          <label for="sport" class="sort__radio-button" id="sort-sport"
+            >🏈</label
+          >
+
+          <input
+            type="radio"
+            class="sort__radio-input"
+            id="meeting"
+            name="type"
+          />
+          <label for="meeting" class="sort__radio-button" id="sort-meeting"
+            >🤝🏻</label
+          >
+
+          <input type="radio" class="sort__radio-input" id="work" name="type" />
+          <label for="work" class="sort__radio-button" id="sort-work">💻</label>
+
+          <input
+            type="radio"
+            class="sort__radio-input"
+            id="study"
+            name="type"
+          />
+          <label for="study" class="sort__radio-button" id="sort-study"
+            >📚</label
+          >
+        </form>
+      </div>
+
+      <div class="map-container">
+        <div class="notifications-center notifications-center--hidden">
+          <div class="btn-container">
+            <div class="counter">1</div>
+            <button class="btn-toggle"><div>></div></button>
+          </div>
+
+          <div class="notifications-container"></div>
+        </div>
+
+        <div class="form">
+          <button class="btn-close btn-close--form">&times;</button>
+          <div class="form-group">
+            <label for="activity" class="form__label">Enter activity</label>
+            <input
+              type="text"
+              class="form__input form__input--activity"
+              name="activity"
+              id="activity"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="date" class="form__label">Enter date</label>
+            <input
+              type="date"
+              class="form__input form__input--date"
+              name="date"
+              name="date"
+              value="2022-03-09"
+              min=""
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="time" class="form__label">Enter time</label>
+            <input
+              type="time"
+              class="form__input form__input--time"
+              name="time"
+              name="time"
+              value="04:00"
+              min=""
+            />
+          </div>
+
+          <div class="form-group">
+            <h4 class="form__label">Select activity type</h4>
+            <div class="form-group__grid">
+              <div class="form__radio-group form__radio-group--sport">
+                <input
+                  type="radio"
+                  class="form__radio-input"
+                  id="select-sport"
+                  name="select-type"
+                  data-type="sport"
+                />
+
+                <label for="select-sport" class="form__radio-button">
+                  🏈
+                  <span class="form__type-name">sport</span>
+                </label>
+              </div>
+
+              <div class="form__radio-group form__radio-group--work">
+                <input
+                  type="radio"
+                  class="form__radio-input"
+                  id="select-work"
+                  name="select-type"
+                  data-type="work"
+                />
+                <label for="select-work" class="form__radio-button">
+                  💻
+                  <span class="form__type-name">work</span>
+                </label>
+              </div>
+
+              <div class="form__radio-group form__radio-group--study">
+                <input
+                  type="radio"
+                  class="form__radio-input"
+                  id="select-study"
+                  name="select-type"
+                  data-type="study"
+                />
+                <label for="select-study" class="form__radio-button">
+                  📚
+                  <span class="form__type-name">study</span>
+                </label>
+              </div>
+
+              <div class="form__radio-group form__radio-group--meeting">
+                <input
+                  type="radio"
+                  class="form__radio-input"
+                  id="select-meeting"
+                  name="select-type"
+                  data-type="meeting"
+                />
+                <label for="select-meeting" class="form__radio-button">
+                  🤝🏻
+                  <span class="form__type-name">meeting</span>
+                </label>
+              </div>
+
+              <div class="form__radio-group form__radio-group--other">
+                <input
+                  type="radio"
+                  class="form__radio-input"
+                  id="select-other"
+                  name="select-type"
+                  data-type="other"
+                />
+                <label for="select-other" class="form__radio-button">
+                  ...
+                  <span class="form__type-name">other</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="reset" class="btn-reset">Reset</button>
+            <button type="submit" class="btn-submit">Create</button>
+          </div>
+        </div>
+
+        <div class="map" id="map"></div>
+      </div>
+    </div>
+  </body>
+</html>

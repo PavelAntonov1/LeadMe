@@ -1,0 +1,21 @@
+{
+  "name": "leadme",
+  "version": "1.0.0",
+  "description": "Activities Tracker that uses the map to give users more convinience",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "enable:live-server": "live-server --browser=chrome",
+    "start": "npm-run-all --parallel enable:live-server watch:sass"
+  },
+  "author": "Pavel Antonov",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "@targomo/leaflet": "^0.1.1",
+    "leaflet-routing-machine": "^3.2.12"
+  }
+}
